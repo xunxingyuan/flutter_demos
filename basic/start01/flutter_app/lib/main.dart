@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'main/home.dart';
+import 'main/match.dart';
+import 'main/contact.dart';
+import 'main/shop.dart';
+import 'main/more.dart';
 
 void main() => runApp(new MyApp());
 
@@ -29,10 +33,10 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   final _widgetOptions = [
     HomePage(),
-    Text('Index 1: 比赛'),
-    Text('Index 2: 社区'),
-    Text('Index 3: 识货'),
-    Text('Index 4: 更多'),
+    MatchPage(),
+    ContactPage(),
+    ShopPage(),
+    MorePage(),
   ];
 
   @override
