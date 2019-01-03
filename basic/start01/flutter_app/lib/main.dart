@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'main/home.dart';
+import 'main/match.dart';
+import 'main/contact.dart';
+import 'main/shop.dart';
+import 'main/more.dart';
 
 void main() => runApp(new MyApp());
 
@@ -7,9 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter Demo',
+      title: '鸽子扑',
       theme: new ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.red,
       ),
       home: new MyHomePage(title: 'First Demo'),
     );
@@ -25,31 +30,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
   final _widgetOptions = [
-    Text('Index 0: Home'),
-    Text('Index 1: Business'),
-    Text('Index 2: School'),
+    HomePage(),
+    MatchPage(),
+    ContactPage(),
+    ShopPage(),
+    MorePage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('BottomNavigationBar Sample'),
-      ),
+      // appBar: AppBar(
+      //   title: Text('BottomNavigationBar Sample'),
+      // ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-          BottomNavigationBarItem(icon: Icon(Icons.business), title: Text('Business')),
-          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('School')),
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.local_play), title: Text('比赛')),
+          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('社区')),
+          BottomNavigationBarItem(icon: Icon(Icons.shop), title: Text('识货')),
+          BottomNavigationBarItem(icon: Icon(Icons.more), title: Text('更多')),
         ],
         currentIndex: _selectedIndex,
-        fixedColor: Colors.deepPurple,
+        fixedColor: Colors.red,
         onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed,
       ),
     );
   }
